@@ -1,5 +1,5 @@
-﻿using BIS.BLL;
-using BIS.BLL.DTO;
+﻿using BIS.BLL.DTO;
+using BIS.BLL.General;
 using BIS.Data.Contexts;
 using BIS.Entity.Entities;
 using System;
@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 namespace BIS.UI
 {
-	public partial class Users : Form
+    public partial class Users : Form
 	{
 		private readonly UserService _userService;
 		public Users(UserService userService)

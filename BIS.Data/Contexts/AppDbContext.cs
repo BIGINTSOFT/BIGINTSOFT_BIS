@@ -18,7 +18,6 @@ namespace BIS.Data.Contexts
         }
 
         public DbSet<User> Users { get; set; }
-
         public DbSet<Product> Products { get; set; }
 		public DbSet<EmployeeStatus> EmployeeStatus { get; set; }
 	}

@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v24.1">
+      <HintPath>..\..\..\..\..\Downloads\Solid-Winforms-master\Solid-Winforms-master\SolidOtomasyon.Takip.Common\bin\Debug\DevExpress.Data.v24.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Drawing.v24.1">
+      <HintPath>..\..\..\..\..\Downloads\Solid-Winforms-master\Solid-Winforms-master\SolidOtomasyon.Takip.Common\bin\Debug\DevExpress.Drawing.v24.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v24.1">
+      <HintPath>..\..\..\..\..\Downloads\Solid-Winforms-master\Solid-Winforms-master\SolidOtomasyon.Takip.Common\bin\Debug\DevExpress.Utils.v24.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v24.1">
+      <HintPath>..\..\..\..\..\..\..\Program Files\DevExpress 24.1\Components\Offline Packages\devexpress.win.navigation\24.1.3\lib\net6.0-windows\DevExpress.XtraEditors.v24.1.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

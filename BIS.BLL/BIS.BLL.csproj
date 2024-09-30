@@ -1,12 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+	<TargetFramework>net8.0-windows</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
+	<UseWindowsForms>true</UseWindowsForms>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BIS.Common\BIS.Common.csproj" />
+    <ProjectReference Include="..\BIS.DAL\BIS.DAL.csproj" />
     <ProjectReference Include="..\BIS.Data\BIS.Data.csproj" />
   </ItemGroup>
 

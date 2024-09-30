@@ -8,13 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BIS.BLL;
 using DevExpress.XtraReports.Design;
 using Microsoft.Extensions.DependencyInjection;
+using BIS.BLL.General;
 
 namespace BIS.UI
 {
-	public partial class LoginForm : Form
+    public partial class LoginForm : Form
 	{
 		private readonly UserService _userService;
 		private readonly IServiceProvider _serviceProvider;

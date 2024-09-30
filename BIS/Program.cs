@@ -1,4 +1,4 @@
-﻿using BIS.BLL;
+﻿using BIS.BLL.General;
 using BIS.Data.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace BIS.UI
 {
-	internal static class Program
+    internal static class Program
 	{
 		/// <summary>
 		///  The main entry point for the application.
