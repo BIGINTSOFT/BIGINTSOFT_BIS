@@ -15,7 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
-using SolidOtomasyon.Forms.FiltreForms;
+using BIS.UI.Functions;
+using DevExpress.Utils.Extensions;
+using BIS.UI.Forms.FiltreForms;
+using DevExpress.XtraGrid.Views.Grid;
+using BIS.BLL.Interfaces;
+using BIS.Entity.Entities;
 
 namespace BIS.UI.Forms.BaseForms
 {
@@ -42,7 +47,7 @@ namespace BIS.UI.Forms.BaseForms
         //Seçilen Kayıt - Row buraya atanacak
         protected internal BaseEntity SelectedEntity;
         //Temel Bll 
-        protected IBaseBll Bll;
+        protected IBaseService Bll;
         protected internal long? SeciliGelecekId;
 
         protected ControlNavigator Navigator;
@@ -173,7 +178,9 @@ namespace BIS.UI.Forms.BaseForms
 
             else if (e.Item == btnYazdir)
             {
-                Yazdir();
+                // YAZDIRMA DAHA SONRA
+
+                //Yazdir();
             }
 
             else if (e.Item == btnCikis)
@@ -401,7 +408,7 @@ namespace BIS.UI.Forms.BaseForms
                 return;
             }
             //Bll'den delete function ulaşmak lazım // Başarısızsa return yap
-            if (!((IBaseCommonBll)Bll).Delete(entity))
+            if (!((IBaseCommonService)Bll).Delete(entity))
             {
                 return;
             }
@@ -445,10 +452,10 @@ namespace BIS.UI.Forms.BaseForms
 
         }
 
-        protected virtual void Yazdir()
-        {
-            TablePrintingFunctions.Yazdir(Tablo, Tablo.ViewCaption, AnaForm.SubeAdi);
-        }
+        //protected virtual void Yazdir()
+        //{
+        //    TablePrintingFunctions.Yazdir(Tablo, Tablo.ViewCaption, AnaForm.SubeAdi);
+        //}
 
         private void FormCaptionAyarlar()
         {

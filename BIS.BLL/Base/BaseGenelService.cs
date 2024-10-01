@@ -10,20 +10,20 @@ using System.Threading.Tasks;
 
 namespace BIS.BLL.Base
 {
-    public class BaseGenelBll<T> : BaseService<T, AppDbContext> where T : BaseEntity
+    public class BaseGenelService<T> : BaseService<T, AppDbContext> where T : BaseEntity
     {
 
         #region Değişkenler
         private KartTuru _kartTuru;
         #endregion
 
-        public BaseGenelBll(KartTuru kartTuru)
+        public BaseGenelService(KartTuru kartTuru)
         {
             //KartTuru göndermemiz gerekiyro yoksa Silerken hata alacağız
             _kartTuru = kartTuru;
         }
 
-        public BaseGenelBll(Control ctrl, KartTuru kartTuru) : base(ctrl)
+        public BaseGenelService(Control ctrl, KartTuru kartTuru) : base(ctrl)
         {
             _kartTuru = kartTuru;
         }

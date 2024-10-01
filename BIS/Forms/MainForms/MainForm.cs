@@ -1,4 +1,5 @@
 ﻿using BIS.UI;
+using DevExpress.XtraBars;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -15,8 +16,10 @@ namespace BIS
 	{
 		private readonly IServiceProvider _serviceProvider;
 		private bool _isSysAdmin;
+
 		public MainForm(bool isSysAdmin, IServiceProvider serviceProvider)
 		{
+
 			InitializeComponent();
 			_isSysAdmin = isSysAdmin;
 			InitializeMenu();
@@ -33,6 +36,7 @@ namespace BIS
 			}
 		}
 
+		
 		private void btnItemSettings_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
 		{
 			var settingsForm = new SettingsForm();

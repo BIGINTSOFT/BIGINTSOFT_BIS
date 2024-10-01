@@ -1,6 +1,7 @@
 ﻿using BIS.BLL.Base;
 using BIS.BLL.Interfaces;
 using BIS.Common.Enums;
+using BIS.Entity.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,8 +15,5 @@ namespace BIS.BLL.General
         public FiltreService() : base(KartTuru.Filtre) { }
 
         public FiltreService(Control ctrl) : base(ctrl, KartTuru.Filtre) { }
-
-
-
     }
 }

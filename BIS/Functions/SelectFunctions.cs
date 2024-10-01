@@ -35,30 +35,30 @@ namespace BIS.UI.Functions
         {
             switch (_btnEdit.Name)
             {
-                case "txtIl":
-                    {
-                        var entity = (Il)ShowListForms<IlListForm>.ShowDialogListForm(_kartTuru, _btnEdit.Id);
-                        if (entity != null)
-                        {
+                //case "txtIl":
+                //    {
+                //        var entity = (Il)ShowListForms<IlListForm>.ShowDialogListForm(_kartTuru, _btnEdit.Id);
+                //        if (entity != null)
+                //        {
 
-                            _btnEdit.Id = entity.Id;
-                            //IlAdi ni yakalamak için ShowListformu' Il'e cast ettik
-                            _btnEdit.EditValue = entity.IlAdi;
-                        }
-                    }
-                    break;
+                //            _btnEdit.Id = entity.Id;
+                //            //IlAdi ni yakalamak için ShowListformu' Il'e cast ettik
+                //            _btnEdit.EditValue = entity.IlAdi;
+                //        }
+                //    }
+                //    break;
 
-                case "txtIlce":
-                    {   //prmEdit ile Il ' Id ve IlAdi gönderiyoruz
-                        var entity = (Ilce)ShowListForms<IlceListForm>.ShowDialogListForm(_kartTuru, _btnEdit.Id, _prmEdit.Id, _prmEdit.Text);
-                        if (entity != null)
-                        {
+                //case "txtIlce":
+                //    {   //prmEdit ile Il ' Id ve IlAdi gönderiyoruz
+                //        var entity = (Ilce)ShowListForms<IlceListForm>.ShowDialogListForm(_kartTuru, _btnEdit.Id, _prmEdit.Id, _prmEdit.Text);
+                //        if (entity != null)
+                //        {
 
-                            _btnEdit.Id = entity.Id;
-                            _btnEdit.EditValue = entity.IlceAdi;
-                        }
-                    }
-                    break;
+                //            _btnEdit.Id = entity.Id;
+                //            _btnEdit.EditValue = entity.IlceAdi;
+                //        }
+                //    }
+                //    break;
             }
         }
 

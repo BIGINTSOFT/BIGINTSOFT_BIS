@@ -2,6 +2,7 @@
 using BIS.BLL.General;
 using BIS.Data.Contexts;
 using BIS.Entity.Entities;
+using BIS.UI.Forms.BaseForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,8 +16,8 @@ using System.Windows.Forms;
 
 namespace BIS.UI
 {
-    public partial class Users : Form
-	{
+    public partial class Users : BaseEditForm
+    {
 		private readonly UserService _userService;
 		public Users(UserService userService)
 		{

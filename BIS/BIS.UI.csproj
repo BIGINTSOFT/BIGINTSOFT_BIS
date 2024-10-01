@@ -47,7 +47,6 @@
 
   <ItemGroup>
     <Folder Include="Forms\FiltreForms\" />
-    <Folder Include="Resources\" />
     <Folder Include="UserControls\Controls\" />
   </ItemGroup>
 

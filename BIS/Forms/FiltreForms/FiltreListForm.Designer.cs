@@ -1,4 +1,4 @@
-﻿namespace SolidOtomasyon.Forms.FiltreForms
+﻿namespace BIS.UI.Forms.FiltreForms
 {
     partial class FiltreListForm
     {
@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.longNavigator1 = new SolidOtomasyon.UserControls.Navigators.LongNavigator();
-            this.grid = new SolidOtomasyon.UserControls.Grid.MyGridControl();
-            this.tablo = new SolidOtomasyon.UserControls.Grid.MyGridView();
-            this.colId = new SolidOtomasyon.UserControls.Grid.MyGridColumn();
-            this.colKod = new SolidOtomasyon.UserControls.Grid.MyGridColumn();
-            this.colFiltreAdi = new SolidOtomasyon.UserControls.Grid.MyGridColumn();
+            this.longNavigator1 = new BIS.UI.UserControls.Navigators.LongNavigator();
+            this.grid = new BIS.UI.UserControls.Grid.MyGridControl();
+            this.tablo = new BIS.UI.UserControls.Grid.MyGridView();
+            this.colId = new BIS.UI.UserControls.Grid.MyGridColumn();
+            this.colKod = new BIS.UI.UserControls.Grid.MyGridColumn();
+            this.colFiltreAdi = new BIS.UI.UserControls.Grid.MyGridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablo)).BeginInit();

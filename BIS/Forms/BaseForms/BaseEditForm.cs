@@ -3,6 +3,7 @@ using BIS.Common.Enums;
 using BIS.Common.Messages;
 using BIS.Entity.Entities.Base;
 using BIS.Entity.Entities.Base.Interfaces;
+using BIS.UI.Functions;
 using BIS.UI.Interfaces;
 using BIS.UI.UserControls.Controls;
 using BIS.UI.UserControls.Grid;
@@ -384,7 +385,7 @@ namespace BIS.UI.Forms.BaseForms
 
         private void EntityDelete()
         {
-            if (!((IBaseCommonBll)Bll).Delete(OldEntity)) return;
+            if (!((IBaseCommonService)Bll).Delete(OldEntity)) return;
             //Başarılı olursa delete olacak Refresh Yap
             RefreshYapilacak = true;
             Close();
@@ -477,13 +478,13 @@ namespace BIS.UI.Forms.BaseForms
         #region Insert Update
         protected virtual bool EntityUpdate()
         {
-            return ((IBaseGenelBll)Bll).Update(OldEntity, CurrentEntity);
+            return ((IBaseGenelService)Bll).Update(OldEntity, CurrentEntity);
         }
 
         protected virtual bool EntityInsert()
         {
 
-            return ((IBaseGenelBll)Bll).Insert(CurrentEntity);
+            return ((IBaseGenelService)Bll).Insert(CurrentEntity);
         }
         #endregion
 

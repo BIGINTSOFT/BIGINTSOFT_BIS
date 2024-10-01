@@ -1,4 +1,4 @@
-﻿namespace SolidOtomasyon.Forms.FiltreForms
+﻿namespace BIS.UI.Forms.FiltreForms
 {
     partial class FiltreEditForm
     {
@@ -33,10 +33,10 @@
             DevExpress.XtraLayout.RowDefinition rowDefinition1 = new DevExpress.XtraLayout.RowDefinition();
             DevExpress.XtraLayout.RowDefinition rowDefinition2 = new DevExpress.XtraLayout.RowDefinition();
             DevExpress.XtraLayout.RowDefinition rowDefinition3 = new DevExpress.XtraLayout.RowDefinition();
-            this.myDataLayoutControl = new SolidOtomasyon.UserControls.Controls.MyDataLayoutControl();
-            this.txtFiltreMetni = new SolidOtomasyon.UserControls.Controls.MyFilterControl();
-            this.txtFiltreAdi = new SolidOtomasyon.UserControls.Controls.MyTextEdit();
-            this.txtKod = new SolidOtomasyon.UserControls.Controls.MyKodTextEdit();
+            this.myDataLayoutControl = new BIS.UI.UserControls.Controls.MyDataLayoutControl();
+            this.txtFiltreMetni = new BIS.UI.UserControls.Controls.MyFilterControl();
+            this.txtFiltreAdi = new BIS.UI.UserControls.Controls.MyTextEdit();
+            this.txtKod = new BIS.UI.UserControls.Controls.MyKodTextEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();

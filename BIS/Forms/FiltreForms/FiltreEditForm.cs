@@ -5,6 +5,7 @@ using BIS.BLL.General;
 using BIS.UI.Functions;
 using BIS.Common.Enums;
 using BIS.Entity;
+using BIS.Entity.Entities;
 
 namespace BIS.UI.Forms.FiltreForms
 {
@@ -33,8 +34,8 @@ namespace BIS.UI.Forms.FiltreForms
 
             DataLayoutControl = myDataLayoutControl;
             //MyDataLayoutControl göndereceğiz : Gerekli Hataları hangi controlde olup bulması için bunu göndermesi lazım.
-            Bll = new FiltreBll(myDataLayoutControl);
-            BaseEditKartTuru = KartTuru.Ilce;
+            Bll = new FiltreService(myDataLayoutControl);
+            BaseEditKartTuru = KartTuru.User;
             EventsLoad();
         }
 
@@ -50,14 +51,14 @@ namespace BIS.UI.Forms.FiltreForms
                     OldEntity = new Filtre();
                     Id = IslemTuru.IdOlustur(OldEntity);
                     // Örnek Okul Geliyorsa -> Okul için Filtre kodu
-                    txtKod.Text = ((FiltreBll)Bll).YeniKodVer(x => x.KartTuru == _filtreKartTuru);
+                    txtKod.Text = ((FiltreService)Bll).YeniKodVer(x => x.KartTuru == _filtreKartTuru);
 
                 }
 
                 else
                 {
                     // Filter fonksiyonu BaseEntity'den implemente oluyor 
-                    OldEntity = ((FiltreBll)Bll).Single(FilterFunctions.Filter<Filtre>(Id));
+                    OldEntity = ((FiltreService)Bll).Single(FilterFunctions.Filter<Filtre>(Id));
                     if (OldEntity == null)
                     {
 
@@ -105,13 +106,13 @@ namespace BIS.UI.Forms.FiltreForms
         protected override bool EntityInsert()
         {
             //Kod şimdiki koda eşit ise ve kart türü ile gelen parametre eşit ise
-            return ((FiltreBll)Bll).Insert(CurrentEntity, x => x.Kod == CurrentEntity.Kod && x.KartTuru==_filtreKartTuru);
+            return ((FiltreService)Bll).Insert(CurrentEntity, x => x.Kod == CurrentEntity.Kod && x.KartTuru==_filtreKartTuru);
         }
 
         protected override bool EntityUpdate()
         {
             //Update işleminde old ve current kısmını test ediyoruz.
-            return ((FiltreBll)Bll).Update(OldEntity, CurrentEntity, x => x.Kod == CurrentEntity.Kod && x.KartTuru == _filtreKartTuru);
+            return ((FiltreService)Bll).Update(OldEntity, CurrentEntity, x => x.Kod == CurrentEntity.Kod && x.KartTuru == _filtreKartTuru);
 
         }
 
