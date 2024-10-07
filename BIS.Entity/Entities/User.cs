@@ -1,11 +1,13 @@
-﻿using System;
+﻿using BIS.Entity.Entities.Base;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace BIS.Entity.Entities
 {
-	public class User
+	public class User:BaseEntityDurum
 	{
-		public int Id { get; set; }
+        public override string Kod { get; set; }
+        public long Id { get; set; }
 
 		[Required(ErrorMessage = "Kullanıcı adı zorunludur.")]
 		[StringLength(50, ErrorMessage = "Kullanıcı adı 50 karakteri geçemez.")]
@@ -29,7 +31,7 @@ namespace BIS.Entity.Entities
 
 		public byte[]? ProfilePicture { get; set; }
 
-		public int? EmployeeStatusId { get; set; }
+		public long? EmployeeStatusId { get; set; }
 		public EmployeeStatus EmployeeStatus { get; set; }
 
 		[StringLength(11, MinimumLength = 11, ErrorMessage = "Kimlik kartı 11 haneli olmalıdır.")]

@@ -40,12 +40,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="appsettings.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Forms\FiltreForms\" />
     <Folder Include="UserControls\Controls\" />
   </ItemGroup>
@@ -78,6 +72,12 @@
     <Reference Include="DevExpress.XtraEditors.v24.1">
       <HintPath>..\..\..\..\..\Downloads\Solid-Winforms-master\Solid-Winforms-master\SolidOtomasyon.Takip.Common\bin\Debug\DevExpress.XtraEditors.v24.1.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

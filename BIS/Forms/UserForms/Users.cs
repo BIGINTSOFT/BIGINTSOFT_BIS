@@ -47,51 +47,51 @@ namespace BIS.UI
 
 		private void btnKaydet_Click(object sender, EventArgs e)
 		{
-			byte[]? imageBytes = null;
+			//byte[]? imageBytes = null;
 
-			if (pictureEdit1.Image != null)
-			{
-				imageBytes = ImageToByteArray(pictureEdit1.Image);
-			}
+			//if (pictureEdit1.Image != null)
+			//{
+			//	imageBytes = ImageToByteArray(pictureEdit1.Image);
+			//}
 
-			var user = new User
-			{
-				UserName = txtUserName.Text,
-				UserSurname = txtUserSurname.Text,
-				Password = txtPassword.Text,
-				Phone = txtPhone.Text,
-				NationalId = txtNationalId.Text,
-				EmployeeStatusId = (int)comboBoxEmployeeStatus.SelectedValue,
-				Email = txtEmail.Text,
-				ProfilePicture = imageBytes,
-				CreatedDate = DateTime.Now,
-				IsActive = (bool)comboBoxIsActive.SelectedValue
-			};
+			//var user = new User
+			//{
+			//	UserName = txtUserName.Text,
+			//	UserSurname = txtUserSurname.Text,
+			//	Password = txtPassword.Text,
+			//	Phone = txtPhone.Text,
+			//	NationalId = txtNationalId.Text,
+			//	EmployeeStatusId = (int)comboBoxEmployeeStatus.SelectedValue,
+			//	Email = txtEmail.Text,
+			//	ProfilePicture = imageBytes,
+			//	CreatedDate = DateTime.Now,
+			//	IsActive = (bool)comboBoxIsActive.SelectedValue
+			//};
 
-			var (isSuccess, errorMessage) = _userService.CreateUser(user);
+			//var (isSuccess, errorMessage) = _userService.CreateUser(user);
 
-			if (isSuccess)
-			{
-				DevExpress.XtraEditors.XtraMessageBox.Show("Kullanıcı başarıyla kaydedildi.", "Başarılı",
-					MessageBoxButtons.OK, MessageBoxIcon.Information);
-				LoadUsersToGrid();
-			}
-			else
-			{
-				DevExpress.XtraEditors.XtraMessageBox.Show($"Kullanıcı kaydedilemedi: {errorMessage}", "Hata",
-					MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
+			//if (isSuccess)
+			//{
+			//	DevExpress.XtraEditors.XtraMessageBox.Show("Kullanıcı başarıyla kaydedildi.", "Başarılı",
+			//		MessageBoxButtons.OK, MessageBoxIcon.Information);
+			//	LoadUsersToGrid();
+			//}
+			//else
+			//{
+			//	DevExpress.XtraEditors.XtraMessageBox.Show($"Kullanıcı kaydedilemedi: {errorMessage}", "Hata",
+			//		MessageBoxButtons.OK, MessageBoxIcon.Error);
+			//}
 		}
 
 		private void Users_Load(object sender, EventArgs e)
 		{
 			toolTipController1.GetActiveObjectInfo += ToolTipController_GetActiveObjectInfo;
 
-			var employeeStatuses = _userService.GetEmployeeStatuses();
+			//var employeeStatuses = _userService.GetEmployeeStatuses();
 
-			comboBoxEmployeeStatus.DataSource = employeeStatuses;
-			comboBoxEmployeeStatus.DisplayMember = "Description";
-			comboBoxEmployeeStatus.ValueMember = "Id";
+			//comboBoxEmployeeStatus.DataSource = employeeStatuses;
+			//comboBoxEmployeeStatus.DisplayMember = "Description";
+			//comboBoxEmployeeStatus.ValueMember = "Id";
 
 			var statusOptions = new List<KeyValuePair<string, bool>>
 			{
@@ -108,12 +108,12 @@ namespace BIS.UI
 		private void LoadUsersToGrid()
 		{
 
-			var users = _userService.GetUsers();
+			//var users = _userService.GetUsers();
 
-			gridControl1.DataSource = users;
-			gridView1.Columns["EmployeeStatusId"].Visible = false;
-			gridView1.BestFitColumns();
-			gridView1.Columns["ProfilePicture"].Width = 20;
+			//gridControl1.DataSource = users;
+			//gridView1.Columns["EmployeeStatusId"].Visible = false;
+			//gridView1.BestFitColumns();
+			//gridView1.Columns["ProfilePicture"].Width = 20;
 		}
 
 		private void ToolTipController_GetActiveObjectInfo(object sender, DevExpress.Utils.ToolTipControllerGetActiveObjectInfoEventArgs e)
