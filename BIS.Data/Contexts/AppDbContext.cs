@@ -5,11 +5,12 @@ namespace BIS.Data.Contexts
 {
     public class AppDbContext:DbContext
     {
-        public AppDbContext(DbContextOptions<AppDbContext> dbContext) : base(dbContext)
-        {
 
+        public AppDbContext(DbContextOptions<AppDbContext> dbContextOptions) : base(dbContextOptions)
+        {
         }
 
+     
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

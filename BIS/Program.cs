@@ -1,5 +1,7 @@
-﻿using BIS.BLL.General;
+﻿using BIS.BLL.Functions;
+using BIS.BLL.General;
 using BIS.Data.Contexts;
+using BIS.UI.Forms.UserForms;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,9 +31,11 @@ namespace BIS.UI
 
 			var serviceProvider = services.BuildServiceProvider();
 
-			// To customize application configuration such as set high DPI settings or default font,
-			// see https://aka.ms/applicationconfiguration.
-			ApplicationConfiguration.Initialize();
+            GeneralFunctions.Initialize(configuration);
+
+            // To customize application configuration such as set high DPI settings or default font,
+            // see https://aka.ms/applicationconfiguration.
+            ApplicationConfiguration.Initialize();
 
 			Application.Run(serviceProvider.GetRequiredService<LoginForm>());
 		}
@@ -55,7 +59,8 @@ namespace BIS.UI
 
 			services.AddScoped<UserService>();
 			services.AddTransient<LoginForm>();
-			services.AddTransient<Users>();
+			services.AddTransient<UserEditForm>();
+			services.AddTransient<UserListForm>();
 		}
 	}
 }

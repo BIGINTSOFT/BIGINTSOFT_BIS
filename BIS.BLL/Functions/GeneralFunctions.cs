@@ -1,7 +1,9 @@
 ﻿using BIS.DAL.Base;
 using BIS.DAL.Interfaces;
+using BIS.Data.Contexts;
 using BIS.Entity.Entities.Base.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -13,7 +15,19 @@ namespace BIS.BLL.Functions
 {
     public static class GeneralFunctions
     {
+        private static IConfiguration _configuration;
 
+        // IConfiguration'ı sınıfa tanıtmak için bir Initialize metodu ekliyoruz
+        public static void Initialize(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
+        // ConnectionString'i almak için metot
+        public static string GetConnectionString()
+        {
+            return _configuration.GetConnectionString("DefaultConnection");
+        }
         //Extension metot olarak tanımlanması için static ve this keywordu kullanılması gerekiyor
         public static IList<string> DegisenAlanlariGetir<T>(this T oldEntity, T currentEntity)
         {
@@ -63,17 +77,19 @@ namespace BIS.BLL.Functions
         }
 
         //Genel Fonksiyonlar Bölümü
-        public static string GetConnectionString()
-        {
-            return ConfigurationManager.ConnectionStrings["SolidBaglanti"].ConnectionString;
-        }
+
 
         //TContext'i ne olduğunu tanımlamamız lazım -> new() ile instance alınabildiğini ve geri gönderebiliriz.
         private static TContext CreateContext<TContext>() where TContext : DbContext
         {
-            //Activator.CreateInstance ile new'leyebiliriz -> TContext'e Cast Etmez isek hata vericektir.
-            // 1. parametre DbContext olduğu , 2. Connection Stringi gönderiyoruz.
-            return (TContext)Activator.CreateInstance(typeof(TContext), GetConnectionString());
+            var connectionString = GetConnectionString();
+
+            // DbContextOptionsBuilder kullanarak context için seçenekler oluşturuyoruz
+            var optionsBuilder = new DbContextOptionsBuilder<TContext>();
+            optionsBuilder.UseSqlServer(connectionString);
+
+            // DbContextOptions ile birlikte TContext instance oluşturuyoruz
+            return (TContext)Activator.CreateInstance(typeof(TContext), optionsBuilder.Options);
         }
 
         //Referans olarak Interfacei aldık -> T : Model katmanındaki genel Entity olan IBaseEntity interface'i

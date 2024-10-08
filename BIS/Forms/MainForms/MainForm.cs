@@ -1,4 +1,7 @@
-﻿using BIS.UI;
+﻿using BIS.Common.Enums;
+using BIS.UI;
+using BIS.UI.Forms.UserForms;
+using BIS.UI.Show;
 using DevExpress.XtraBars;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -24,8 +27,9 @@ namespace BIS
 			_isSysAdmin = isSysAdmin;
 			InitializeMenu();
 			_serviceProvider = serviceProvider;
+            EventsLoad();
 
-			this.IsMdiContainer = true;
+            this.IsMdiContainer = true;
 		}
 		private void InitializeMenu()
 		{
@@ -36,28 +40,38 @@ namespace BIS
 			}
 		}
 
-		
-		private void btnItemSettings_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void EventsLoad()
+        {
+            //Header menüdeki Ribborn Control de dolaşıyoruz
+            foreach (var item in ribbonControl1.Items)
+            {
+                switch (item)
+                {
+                    case BarButtonItem btn:
+                        btn.ItemClick += Butonlar_ItemClick;
+                        break;
+
+
+                }
+
+            }
+        }
+
+
+        private void Butonlar_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (e.Item == btnUserCard)
+            {
+                ShowListForms<UserListForm>.ShowListForm(KartTuru.User);
+            }
+
+        }
+
+        private void btnItemSettings_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
 		{
 			var settingsForm = new SettingsForm();
 			settingsForm.ShowDialog();
 		}
-
-		private void ribbonControl1_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void MainForm_Load(object sender, EventArgs e)
-		{
-
-		}
-
-		private void btnUserCard_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-		{
-			var usersForm = _serviceProvider.GetRequiredService<Users>();
-			usersForm.MdiParent = this;  // Formu ana forma MDI child olarak ekliyoruz
-			usersForm.Show();
-		}
+	
 	}
 }

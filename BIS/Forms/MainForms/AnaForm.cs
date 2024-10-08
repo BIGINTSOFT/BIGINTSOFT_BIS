@@ -1,4 +1,6 @@
 ﻿using BIS.Common.Enums;
+using BIS.Entity.Entities;
+using BIS.UI.Forms.UserForms;
 using BIS.UI.Show;
 using DevExpress.XtraBars;
 
@@ -40,7 +42,7 @@ namespace BIS.UI.Forms.MainForms
         {
             if(e.Item == btnOkulKartlari)
             {
-                //ShowListForms<Users>.ShowListForm(KartTuru.User);
+                ShowListForms<UserListForm>.ShowListForm(KartTuru.User);
             }
 
         }

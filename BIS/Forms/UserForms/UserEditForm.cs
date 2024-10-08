@@ -49,6 +49,9 @@ namespace BIS.UI.Forms.UserForms
             Id = IslemTuru.IdOlustur(OldEntity);
             //Txt'kod kısmına yeni kod oluşturup atacağız ... 
             txtKod.Text = ((UserService)Bll).YeniKodVer();
+
+            LoadEmployeeStatusData();
+
             txtAd.Focus();
         }
 
@@ -63,8 +66,7 @@ namespace BIS.UI.Forms.UserForms
             txtAd.Text = entity.UserName;
             txtSoyad.Text = entity.UserSurname;
             txtEmail.Text = entity.Email;
-            txtCalisanStatu.Id = entity.EmployeeStatusId;
-            txtCalisanStatu.Text = entity.EmployeeStatus;
+            lookUpEditCalisanStatu.EditValue = entity.EmployeeStatusId;
             txtPassword.Text = entity.Password;
             txtTCNo.Text = entity.CardNumber;
             txtTelefon.Text = entity.Phone;
@@ -98,14 +100,23 @@ namespace BIS.UI.Forms.UserForms
                 Password = txtPassword.Text,
                 Email = txtEmail.Text,
                 ProfilePicture = ImageToByteArray(pctBoxUser.Image),
-                EmployeeStatusId = Convert.ToInt64(txtCalisanStatu.Id),        
+                EmployeeStatusId = (long?)lookUpEditCalisanStatu.EditValue,
                 Durum = tglDurum.IsOn
-
-
             };
             //İşlemi son olarak Function çağırarak tamamlıyoruz ...
             ButonEnabledDurumu();
+     
 
+        }
+
+        private void LoadEmployeeStatusData()
+        {
+            // Veritabanından EmployeeStatus listesini getiriyoruz
+            var employeeStatusList = ((UserService)Bll).GetEmployeeStatuses(); // Veritabanı erişim katmanında GetAll metodunu oluşturun
+            // LookUpEdit bileşenine veri kaynağını bağlayın
+            lookUpEditCalisanStatu.Properties.DataSource = employeeStatusList;
+            lookUpEditCalisanStatu.Properties.DisplayMember = "Description";  // Gösterilecek alan adı (EmployeeStatus'ta tanımlı)
+            lookUpEditCalisanStatu.Properties.ValueMember = "Id";  // Seçildiğinde alacağımız değer
         }
 
         private byte[] ImageToByteArray(Image image)
@@ -127,14 +138,26 @@ namespace BIS.UI.Forms.UserForms
                 //herhangi bir işlem yapma
                 return;
             }
-            using (var sec = new SelectFunctions())
-            {
-                if (sender == txtCalisanStatu)
+            //using (var sec = new SelectFunctions())
+            //{
+            //    if (sender == txtCalisanStatu)
 
-                    sec.Sec(txtCalisanStatu);
-                //else if (sender == txtIlce)
-                //    //prm olarak txtIl göndereceğiz
-                //    sec.Sec(txtIlce, txtIl);
+            //        sec.Sec(txtCalisanStatu);
+            //    //else if (sender == txtIlce)
+            //    //    //prm olarak txtIl göndereceğiz
+            //    //    sec.Sec(txtIlce, txtIl);
+            //}
+        }
+
+        private void btnResimSec_Click(object sender, EventArgs e)
+        {
+            resimSecDialog.Filter = "Resim Dosyaları|*.jpg;*.jpeg;*.png;*.bmp";
+            resimSecDialog.Title = "Bir resim seçin";
+
+            if (resimSecDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = resimSecDialog.FileName;
+                pctBoxUser.Image = Image.FromFile(filePath);
             }
         }
 

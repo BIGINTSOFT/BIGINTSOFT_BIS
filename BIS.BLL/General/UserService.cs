@@ -18,13 +18,15 @@ namespace BIS.BLL.General
         private readonly AppDbContext _context;
 
 
-        //Kart Türünü Base olarak gönderiyoruz ...
-        public UserService(AppDbContext context) : base(KartTuru.User)
-        {
 
+
+        //Kart Türünü Base olarak gönderiyoruz ...
+        public UserService() : base(KartTuru.User)
+        {
         }
 
-        public UserService(Control ctrl) : base(ctrl, KartTuru.User) { }
+        public UserService(Control ctrl) : base(ctrl, KartTuru.User) {
+        }
 
         //BaseBll'deki Single TResult Türünde ve TResult ise BaseEntity olacağı için geriye BaseEntity gönderecek.
         public override BaseEntity Single(Expression<Func<User, bool>> filter)
@@ -66,6 +68,8 @@ namespace BIS.BLL.General
             }).OrderBy(x => x.Kod).ToList();
         }
 
+        
+
         public (User user, string errorMessage) ValidateUser(string username, string password)
         {
             try
@@ -84,6 +88,20 @@ namespace BIS.BLL.General
             {
                 return (null, $"Bir hata oluştu: {ex.Message}");
             }
+        }
+
+        public List<EmployeeStatus> GetEmployeeStatuses()
+        {
+            try
+            {
+                return _context.EmployeeStatus.ToList();  // Veritabanından EmployeeStatus verilerini çekiyoruz
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
         }
     }
 

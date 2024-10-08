@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             DevExpress.XtraLayout.ColumnDefinition columnDefinition1 = new DevExpress.XtraLayout.ColumnDefinition();
             DevExpress.XtraLayout.ColumnDefinition columnDefinition2 = new DevExpress.XtraLayout.ColumnDefinition();
             DevExpress.XtraLayout.ColumnDefinition columnDefinition3 = new DevExpress.XtraLayout.ColumnDefinition();
@@ -40,8 +41,11 @@
             DevExpress.XtraLayout.RowDefinition rowDefinition7 = new DevExpress.XtraLayout.RowDefinition();
             DevExpress.XtraLayout.RowDefinition rowDefinition8 = new DevExpress.XtraLayout.RowDefinition();
             DevExpress.XtraLayout.RowDefinition rowDefinition9 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition10 = new DevExpress.XtraLayout.RowDefinition();
             layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             myDataLayoutControl = new UserControls.Controls.MyDataLayoutControl();
+            lookUpEditCalisanStatu = new DevExpress.XtraEditors.LookUpEdit();
+            btnResimSec = new UserControls.Controls.MySimpleButtonEdit();
             pctBoxUser = new UserControls.Controls.MyPictureEdit();
             txtTCNo = new UserControls.Controls.MyTcKimlikNoTextEdit();
             txtEmail = new UserControls.Controls.MyEmailTextEdit();
@@ -61,15 +65,17 @@
             layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
+            layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
+            layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
             Root = new DevExpress.XtraLayout.LayoutControlGroup();
             layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            txtCalisanStatu = new UserControls.Controls.MyButtonEdit();
-            layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
+            resimSecDialog = new DevExpress.XtraEditors.XtraOpenFileDialog(components);
             ((System.ComponentModel.ISupportInitialize)ribbonControl).BeginInit();
             ((System.ComponentModel.ISupportInitialize)layoutControl1).BeginInit();
             layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)myDataLayoutControl).BeginInit();
             myDataLayoutControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)lookUpEditCalisanStatu.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pctBoxUser.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtTCNo.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtEmail.Properties).BeginInit();
@@ -89,17 +95,17 @@
             ((System.ComponentModel.ISupportInitialize)layoutControlItem8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem9).BeginInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem10).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlItem12).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlItem11).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Root).BeginInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)txtCalisanStatu.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)layoutControlItem11).BeginInit();
             SuspendLayout();
             // 
             // ribbonControl
             // 
             ribbonControl.ExpandCollapseItem.Id = 0;
             ribbonControl.OptionsPageCategories.ShowCaptions = false;
-            ribbonControl.Size = new System.Drawing.Size(555, 135);
+            ribbonControl.Size = new System.Drawing.Size(426, 135);
             ribbonControl.Toolbar.ShowCustomizeItem = false;
             // 
             // layoutControl1
@@ -109,13 +115,14 @@
             layoutControl1.Location = new System.Drawing.Point(0, 135);
             layoutControl1.Name = "layoutControl1";
             layoutControl1.Root = Root;
-            layoutControl1.Size = new System.Drawing.Size(555, 470);
+            layoutControl1.Size = new System.Drawing.Size(426, 468);
             layoutControl1.TabIndex = 2;
             layoutControl1.Text = "layoutControl1";
             // 
             // myDataLayoutControl
             // 
-            myDataLayoutControl.Controls.Add(txtCalisanStatu);
+            myDataLayoutControl.Controls.Add(lookUpEditCalisanStatu);
+            myDataLayoutControl.Controls.Add(btnResimSec);
             myDataLayoutControl.Controls.Add(pctBoxUser);
             myDataLayoutControl.Controls.Add(txtTCNo);
             myDataLayoutControl.Controls.Add(txtEmail);
@@ -130,9 +137,34 @@
             myDataLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(792, 295, 650, 400);
             myDataLayoutControl.OptionsFocus.EnableAutoTabOrder = false;
             myDataLayoutControl.Root = layoutControlGroup1;
-            myDataLayoutControl.Size = new System.Drawing.Size(531, 446);
+            myDataLayoutControl.Size = new System.Drawing.Size(420, 427);
             myDataLayoutControl.TabIndex = 0;
             myDataLayoutControl.Text = "myDataLayoutControl1";
+            // 
+            // lookUpEditCalisanStatu
+            // 
+            lookUpEditCalisanStatu.Location = new System.Drawing.Point(87, 132);
+            lookUpEditCalisanStatu.MenuManager = ribbonControl;
+            lookUpEditCalisanStatu.Name = "lookUpEditCalisanStatu";
+            lookUpEditCalisanStatu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            lookUpEditCalisanStatu.Properties.NullText = "Listeden Seçiniz";
+            lookUpEditCalisanStatu.Size = new System.Drawing.Size(221, 20);
+            lookUpEditCalisanStatu.StyleController = myDataLayoutControl;
+            lookUpEditCalisanStatu.TabIndex = 15;
+            // 
+            // btnResimSec
+            // 
+            btnResimSec.Appearance.ForeColor = System.Drawing.Color.Maroon;
+            btnResimSec.Appearance.Options.UseForeColor = true;
+            btnResimSec.ImageOptions.Image = Properties.Resources.insertimage_32x32;
+            btnResimSec.Location = new System.Drawing.Point(12, 395);
+            btnResimSec.Name = "btnResimSec";
+            btnResimSec.Size = new System.Drawing.Size(296, 20);
+            btnResimSec.StatusBarAciklama = null;
+            btnResimSec.StyleController = myDataLayoutControl;
+            btnResimSec.TabIndex = 14;
+            btnResimSec.Text = "Resmi Seç";
+            btnResimSec.Click += btnResimSec_Click;
             // 
             // pctBoxUser
             // 
@@ -148,7 +180,7 @@
             pctBoxUser.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             pctBoxUser.Properties.ShowMenu = false;
             pctBoxUser.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            pctBoxUser.Size = new System.Drawing.Size(333, 230);
+            pctBoxUser.Size = new System.Drawing.Size(222, 187);
             pctBoxUser.StatusBarAciklama = null;
             pctBoxUser.StatusBarKisaYol = "F4 :";
             pctBoxUser.StatusBarKisaYolAciklama = null;
@@ -165,6 +197,9 @@
             txtTCNo.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             txtTCNo.Properties.AppearanceFocused.BackColor = System.Drawing.Color.LightCyan;
             txtTCNo.Properties.AppearanceFocused.Options.UseBackColor = true;
+            txtTCNo.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.None;
+            txtTCNo.Properties.Mask.EditMask = "\\d?\\d?\\d? \\d?\\d?\\d? \\d?\\d?\\d \\d?\\d?\\d? \\d?\\d?";
+            txtTCNo.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Regular;
             txtTCNo.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.RegularMaskManager));
             txtTCNo.Properties.MaskSettings.Set("mask", "\\d?\\d?\\d? \\d?\\d?\\d? \\d?\\d?\\d \\d?\\d?\\d? \\d?\\d?");
             txtTCNo.Properties.MaskSettings.Set("isAutoComplete", false);
@@ -183,6 +218,9 @@
             txtEmail.Name = "txtEmail";
             txtEmail.Properties.AppearanceFocused.BackColor = System.Drawing.Color.LightCyan;
             txtEmail.Properties.AppearanceFocused.Options.UseBackColor = true;
+            txtEmail.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.Strong;
+            txtEmail.Properties.Mask.EditMask = "((([0-9a-zA-Z_%-])+[.])+|([0-9a-zA-Z_%-])+)+@((([0-9a-zA-Z_-])+[.])+|([0-9a-zA-Z_-])+)+";
+            txtEmail.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             txtEmail.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.RegExpMaskManager));
             txtEmail.Properties.MaskSettings.Set("allowBlankInput", true);
             txtEmail.Properties.MaskSettings.Set("mask", "((([0-9a-zA-Z_%-])+[.])+|([0-9a-zA-Z_%-])+)+@((([0-9a-zA-Z_-])+[.])+|([0-9a-zA-Z_-])+)+");
@@ -197,7 +235,7 @@
             // tglDurum
             // 
             tglDurum.EnterMoveNextControl = true;
-            tglDurum.Location = new System.Drawing.Point(424, 12);
+            tglDurum.Location = new System.Drawing.Point(313, 12);
             tglDurum.MenuManager = ribbonControl;
             tglDurum.Name = "tglDurum";
             tglDurum.Properties.Appearance.ForeColor = System.Drawing.Color.Maroon;
@@ -222,6 +260,9 @@
             txtTelefon.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             txtTelefon.Properties.AppearanceFocused.BackColor = System.Drawing.Color.LightCyan;
             txtTelefon.Properties.AppearanceFocused.Options.UseBackColor = true;
+            txtTelefon.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.None;
+            txtTelefon.Properties.Mask.EditMask = "(\\d?\\d?\\d?) \\d?\\d?\\d? \\d?\\d?  \\d?\\d?";
+            txtTelefon.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Regular;
             txtTelefon.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.RegularMaskManager));
             txtTelefon.Properties.MaskSettings.Set("mask", "(\\d?\\d?\\d?) \\d?\\d?\\d? \\d?\\d?  \\d?\\d?");
             txtTelefon.Properties.MaskSettings.Set("isAutoComplete", false);
@@ -296,7 +337,7 @@
             // 
             layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             layoutControlGroup1.GroupBordersVisible = false;
-            layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutControlItem2, layoutControlItem3, layoutControlItem4, layoutControlItem5, layoutControlItem6, layoutControlItem7, layoutControlItem8, layoutControlItem9, layoutControlItem10, layoutControlItem11 });
+            layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutControlItem2, layoutControlItem3, layoutControlItem4, layoutControlItem5, layoutControlItem6, layoutControlItem7, layoutControlItem8, layoutControlItem9, layoutControlItem10, layoutControlItem12, layoutControlItem11 });
             layoutControlGroup1.LayoutMode = DevExpress.XtraLayout.Utils.LayoutMode.Table;
             layoutControlGroup1.Name = "Root";
             columnDefinition1.SizeType = System.Windows.Forms.SizeType.Absolute;
@@ -324,8 +365,10 @@
             rowDefinition8.SizeType = System.Windows.Forms.SizeType.Absolute;
             rowDefinition9.Height = 100D;
             rowDefinition9.SizeType = System.Windows.Forms.SizeType.Percent;
-            layoutControlGroup1.OptionsTableLayoutGroup.RowDefinitions.AddRange(new DevExpress.XtraLayout.RowDefinition[] { rowDefinition1, rowDefinition2, rowDefinition3, rowDefinition4, rowDefinition5, rowDefinition6, rowDefinition7, rowDefinition8, rowDefinition9 });
-            layoutControlGroup1.Size = new System.Drawing.Size(531, 446);
+            rowDefinition10.Height = 24D;
+            rowDefinition10.SizeType = System.Windows.Forms.SizeType.Absolute;
+            layoutControlGroup1.OptionsTableLayoutGroup.RowDefinitions.AddRange(new DevExpress.XtraLayout.RowDefinition[] { rowDefinition1, rowDefinition2, rowDefinition3, rowDefinition4, rowDefinition5, rowDefinition6, rowDefinition7, rowDefinition8, rowDefinition9, rowDefinition10 });
+            layoutControlGroup1.Size = new System.Drawing.Size(420, 427);
             layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem2
@@ -392,7 +435,7 @@
             layoutControlItem7.AppearanceItemCaption.ForeColor = System.Drawing.Color.Maroon;
             layoutControlItem7.AppearanceItemCaption.Options.UseForeColor = true;
             layoutControlItem7.Control = tglDurum;
-            layoutControlItem7.Location = new System.Drawing.Point(412, 0);
+            layoutControlItem7.Location = new System.Drawing.Point(301, 0);
             layoutControlItem7.Name = "layoutControlItem7";
             layoutControlItem7.OptionsTableLayoutItem.ColumnIndex = 2;
             layoutControlItem7.Size = new System.Drawing.Size(99, 24);
@@ -432,51 +475,28 @@
             layoutControlItem10.Name = "layoutControlItem10";
             layoutControlItem10.OptionsTableLayoutItem.ColumnSpan = 2;
             layoutControlItem10.OptionsTableLayoutItem.RowIndex = 8;
-            layoutControlItem10.Size = new System.Drawing.Size(412, 234);
-            layoutControlItem10.Text = "Resim Seç";
+            layoutControlItem10.Size = new System.Drawing.Size(301, 191);
+            layoutControlItem10.Text = "Profil";
             layoutControlItem10.TextSize = new System.Drawing.Size(63, 13);
             // 
-            // Root
+            // layoutControlItem12
             // 
-            Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            Root.GroupBordersVisible = false;
-            Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutControlItem1 });
-            Root.Name = "Root";
-            Root.Size = new System.Drawing.Size(555, 470);
-            Root.TextVisible = false;
-            // 
-            // layoutControlItem1
-            // 
-            layoutControlItem1.Control = myDataLayoutControl;
-            layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            layoutControlItem1.Name = "layoutControlItem1";
-            layoutControlItem1.Size = new System.Drawing.Size(535, 450);
-            layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            layoutControlItem1.TextVisible = false;
-            // 
-            // txtCalisanStatu
-            // 
-            txtCalisanStatu.EnterMoveNextControl = true;
-            txtCalisanStatu.Id = null;
-            txtCalisanStatu.Location = new System.Drawing.Point(87, 132);
-            txtCalisanStatu.MenuManager = ribbonControl;
-            txtCalisanStatu.Name = "txtCalisanStatu";
-            txtCalisanStatu.Properties.AppearanceFocused.BackColor = System.Drawing.Color.LightCyan;
-            txtCalisanStatu.Properties.AppearanceFocused.Options.UseBackColor = true;
-            txtCalisanStatu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton() });
-            txtCalisanStatu.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            txtCalisanStatu.Size = new System.Drawing.Size(221, 20);
-            txtCalisanStatu.StatusBarAciklama = null;
-            txtCalisanStatu.StatusBarKisaYol = "F4 :";
-            txtCalisanStatu.StatusBarKisaYolAciklama = null;
-            txtCalisanStatu.StyleController = myDataLayoutControl;
-            txtCalisanStatu.TabIndex = 13;
+            layoutControlItem12.AppearanceItemCaption.ForeColor = System.Drawing.Color.Maroon;
+            layoutControlItem12.AppearanceItemCaption.Options.UseForeColor = true;
+            layoutControlItem12.BestFitWeight = 50;
+            layoutControlItem12.Control = btnResimSec;
+            layoutControlItem12.Location = new System.Drawing.Point(0, 383);
+            layoutControlItem12.Name = "layoutControlItem12";
+            layoutControlItem12.OptionsTableLayoutItem.RowIndex = 9;
+            layoutControlItem12.Size = new System.Drawing.Size(300, 24);
+            layoutControlItem12.TextSize = new System.Drawing.Size(0, 0);
+            layoutControlItem12.TextVisible = false;
             // 
             // layoutControlItem11
             // 
             layoutControlItem11.AppearanceItemCaption.ForeColor = System.Drawing.Color.Maroon;
             layoutControlItem11.AppearanceItemCaption.Options.UseForeColor = true;
-            layoutControlItem11.Control = txtCalisanStatu;
+            layoutControlItem11.Control = lookUpEditCalisanStatu;
             layoutControlItem11.Location = new System.Drawing.Point(0, 120);
             layoutControlItem11.Name = "layoutControlItem11";
             layoutControlItem11.OptionsTableLayoutItem.RowIndex = 5;
@@ -484,11 +504,33 @@
             layoutControlItem11.Text = "Çalışan Statü";
             layoutControlItem11.TextSize = new System.Drawing.Size(63, 13);
             // 
+            // Root
+            // 
+            Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            Root.GroupBordersVisible = false;
+            Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutControlItem1 });
+            Root.Name = "Root";
+            Root.Size = new System.Drawing.Size(444, 451);
+            Root.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            layoutControlItem1.Control = myDataLayoutControl;
+            layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            layoutControlItem1.Name = "layoutControlItem1";
+            layoutControlItem1.Size = new System.Drawing.Size(424, 431);
+            layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            layoutControlItem1.TextVisible = false;
+            // 
+            // resimSecDialog
+            // 
+            resimSecDialog.FileName = "xtraOpenFileDialog1";
+            // 
             // UserEditForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(555, 629);
+            ClientSize = new System.Drawing.Size(426, 627);
             Controls.Add(layoutControl1);
             IconOptions.ShowIcon = false;
             Name = "UserEditForm";
@@ -500,6 +542,7 @@
             layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)myDataLayoutControl).EndInit();
             myDataLayoutControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)lookUpEditCalisanStatu.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)pctBoxUser.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtTCNo.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtEmail.Properties).EndInit();
@@ -519,10 +562,10 @@
             ((System.ComponentModel.ISupportInitialize)layoutControlItem8).EndInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem9).EndInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem10).EndInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlItem12).EndInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlItem11).EndInit();
             ((System.ComponentModel.ISupportInitialize)Root).EndInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)txtCalisanStatu.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)layoutControlItem11).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -552,7 +595,10 @@
         private UserControls.Controls.MyPictureEdit pctBoxUser;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
-        private UserControls.Controls.MyButtonEdit txtCalisanStatu;
+        private UserControls.Controls.MySimpleButtonEdit btnResimSec;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem12;
+        private DevExpress.XtraEditors.XtraOpenFileDialog resimSecDialog;
+        private DevExpress.XtraEditors.LookUpEdit lookUpEditCalisanStatu;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem11;
     }
 }

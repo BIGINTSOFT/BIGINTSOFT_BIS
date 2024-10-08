@@ -189,6 +189,7 @@
             superToolTip1.Items.Add(toolTipSeparatorItem1);
             superToolTip1.Items.Add(toolTipTitleItem2);
             btnYeni.SuperTip = superToolTip1;
+
             // 
             // btnSil
             // 

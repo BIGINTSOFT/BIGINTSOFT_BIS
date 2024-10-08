@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using DevExpress.XtraReports.Design;
 using Microsoft.Extensions.DependencyInjection;
 using BIS.BLL.General;
+using BIS.UI.Forms.MainForms;
 
 namespace BIS.UI
 {
@@ -33,7 +34,7 @@ namespace BIS.UI
 			if (username == "sysadmin" && password == "syspasswordubm")
 			{
 				// Sysadmin giriş yaptı, MainForm'u aç
-				var mainForm = new MainForm(true, _serviceProvider);
+				var mainForm = new MainForm(true,_serviceProvider);
 				mainForm.Show();
 				this.Hide();
 			}
@@ -46,7 +47,7 @@ namespace BIS.UI
 				{
 					// Kullanıcı doğrulandı, MainForm'u aç
 					var mainForm = new MainForm(false, _serviceProvider);
-					mainForm.Show();
+                    mainForm.Show();
 					this.Hide();
 				}
 				else
